@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<%- include('../layout/headSection')-%>
+
+    <body>
+        <div id="main-wrapper">
+            <%- include('../layout/Header')-%>
+                <%- include('../layout/sidebar')-%>
+                    <div class="page-wrapper">
+                        <div class="page-breadcrumb">
+                            <div class="row">
+                                <div class="col-12 d-flex no-block align-items-center">
+                                    <h4 class="page-title">update Blog</h4>
+                                    <div class="ml-auto text-right">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="card">
+                                <img src="/profile/<%=blog.blog_image%>" alt="" width="100" height="100" class="mx-auto my-5">
+                                <form class="form-horizontal" method="post"  action="/api/blog/<%=blog._id%>"
+                                    enctype="multipart/form-data">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for="fname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Title</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="fname"
+                                                    placeholder="enter blog title" name="blog_title"
+                                                    value="<%=blog.blog_title%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Auther</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="lname"
+                                                    placeholder="enter auther name" name="blog_auther"
+                                                    value="<%=blog.blog_auther%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Category</label>
+                                            <div class="col-sm-9">
+                                                <select name="blog_category" id="" class="form-control  col-form-lable"
+                                                    value="<%=blog.blog_category%>">
+                                                    <option value="" selected disabled><%=blog.blog_category%></option>
+                                                    <option value="bmw">BMW</option>
+                                                    <option value="scorpio">SCORPIO</option>
+                                                    <option value="thar">THAR</option>
+                                                    <option value="shift">SHIFT</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Content</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="lname"
+                                                    placeholder="enter blog_content name" name="blog_content"
+                                                    value="<%=blog.blog_content%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Date</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="lname"
+                                                    placeholder="enter date" name="blog_date"
+                                                    value="<%=blog.blog_date%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Description</label>
+                                            <div class="col-sm-9">
+                                                <textarea id="" class="form-control" placeholder="enter description"
+                                                    name="blog_desc"
+                                                    value="<%=blog.blog_desc%>"><%=blog.blog_desc%></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Image</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" class="form-control" name="blog_image"
+                                                    value="<%=blog.blog_image%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-warning" type="submit">update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <footer class="footer text-center">All Rights Reserved by Matrix-admin. Designed and
+                                Developed by <a href="https://wrappixel.com">WrapPixel</a>.</footer>
+                        </div>
+                    </div>
+                    <%- include('../layout/navslink')-%>
+    </body>
+
+</html>

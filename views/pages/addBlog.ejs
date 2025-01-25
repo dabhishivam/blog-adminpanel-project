@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<%- include('../layout/headSection')-%>
+    <body>
+        <div id="main-wrapper">
+            <%- include('../layout/Header')-%>
+                <%- include('../layout/sidebar')-%>
+                    <div class="page-wrapper">
+                        <div class="page-breadcrumb">
+                            <div class="row">
+                                <div class="col-12 d-flex no-block align-items-center">
+                                    <h4 class="page-title">add Blog</h4>
+                                    <div class="ml-auto text-right">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="card">
+                                <form class="form-horizontal" method="post" action="/api/blog" enctype="multipart/form-data">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for="fname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Title</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="fname"
+                                                    placeholder="enter blog title" name="blog_title">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Auther</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="lname"
+                                                    placeholder="enter auther name" name="blog_auther">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Category</label>
+                                            <div class="col-sm-9">
+                                                <select name="blog_category" id="" class="form-control  col-form-lable" > 
+                                                    <option value="bmw">bmw</option>
+                                                    <option value="scorpio">scorpio</option>
+                                                    <option value="thar">thar</option>
+                                                    <option value="shift">shift</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Content</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="lname"
+                                                    placeholder="enter blog content " name="blog_content">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Date</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="lname"
+                                                    placeholder="enter date" name="blog_date">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Description</label>
+                                            <div class="col-sm-9">
+                                               <textarea  id="" class="form-control" placeholder="enter description" name="blog_desc"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog Image</label>
+                                            <div class="col-sm-9">
+                                              <input type="file" class="form-control" name="blog_image" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-success" type="submit">submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <footer class="footer text-center">All Rights Reserved by Matrix-admin. Designed and
+                                Developed by <a href="https://wrappixel.com">WrapPixel</a>.</footer>
+                        </div>
+                    </div>
+<%- include('../layout/navslink')-%>
+</body>
+</html>
