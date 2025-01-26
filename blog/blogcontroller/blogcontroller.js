@@ -66,11 +66,16 @@ exports.update = async(req,res)=>{
       const {id} = req.params
       console.log(id)
       const {blog_title,blog_category, blog_auther,blog_content,blog_date,blog_desc} = req.body
-  
+      var image = ""
+      if(req.file){
+          image = req?.file?.filename
+      }else{
+          image = req.body.blog_image
+      }
       await Blog.findByIdAndUpdate(
           {_id:id},
           {
-              blog_title,blog_category,blog_auther,blog_content,blog_date,blog_desc,blog_image:req?.file?.filename
+              blog_title,blog_category,blog_auther,blog_content,blog_date,blog_desc,blog_image:image
           }
       )
       res.redirect('/viewBlog')

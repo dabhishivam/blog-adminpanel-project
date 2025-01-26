@@ -47,21 +47,26 @@ exports.login = async(req,res)=>{
 }
 
 exports.updateProfile = async (req,res)=>{
-    console.log(req.body)
-    console.log(req.file)
-    const {username,email } = req.body
-    const existEmail = await Admin.findOne({email}).countDocuments().exec()
+   try {
+     console.log(req.body)
+     console.log(req.file)
+     const {username,email } = req.body
+     const existEmail = await Admin.findOne({email}).countDocuments().exec()
+    
+     if(existEmail>0){
+         await Admin.updateOne(
+             {email:email},
+             {
+                 username,
+                 admin_profile:req?.file?.filename
 
-    if(existEmail>0){
-        await Admin.updateOne(
-            {email:email},
-            {
-                username,
-                admin_profile: req?.file?.filename
-            }
-        )
-        res.redirect('/myProfile')
-    }else{
-        res.json("your email is not exist")
-    }
+             }
+         )
+         res.redirect('/myProfile')
+     }else{
+         res.json("your email is not exist")
+     }
+   } catch (error) {
+    res.json(error)
+   }
 }
