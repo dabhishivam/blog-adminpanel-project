@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const common = {
     type:String,
-    requireed:true,
+    required:true,
     unique:true,
     trim:true
 }
@@ -15,7 +15,7 @@ const adminschema = new Schema({
     admin_profile:String
 },
 {
-    trimstamps:true
+    timestamps:true
 })
 const Admin=model("Admin", adminschema)
 module.exports = Admin
