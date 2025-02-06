@@ -40,7 +40,7 @@ router.get('/login', async(req,res)=>{
 router.get('/logout',accesspage, async(req,res)=>{
     // res.clearCookie('admin')
     // res.redirect('/login')
-    req.logout((err)=>{1
+    req.logout((err)=>{
         if(err){
             console.log(err)
         }else{
