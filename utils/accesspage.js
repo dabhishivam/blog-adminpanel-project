@@ -1,6 +1,9 @@
-exports.accesspage = (req,res,next)=>{
-    if(req.isAuthenticated()){
-        return next()
+
+exports.accesspage = (req,res,url)=>{
+    
+    if(!req.cookies.admin){
+        res.redirect('/login')
+    }else{
+        res.render(url)
     }
-    res.redirect('/login')
 }

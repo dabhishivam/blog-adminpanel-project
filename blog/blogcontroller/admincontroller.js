@@ -1,6 +1,6 @@
 const { plainTohash, hashToplain } = require('../../utils/password')
 const Admin = require('../blogmodel/adminmodel')
-
+const jwt = require('jsonwebtoken')
 exports.register = async(req,res)=>{
 try {
         console.log(req.body)
@@ -30,10 +30,14 @@ exports.login = async(req,res)=>{
              const match_pass = await hashToplain(password, admin.password)
              if(match_pass){
                 const payload = {
-                    username:admin.username,
-                    email:admin.email
+                    id:admin._id,
+                    role_id:admin.role_id
                 }
-                res.cookie('admin',payload,{httpOnly:true})
+                // set data into cookie 
+                const token = jwt.sign(payload, "mykey", {expiresIn: "1h"})
+                // console.log("token...")
+                // console.log(token)
+                res.cookie('admin',token,{httpOnly:true,maxAge:60*60*1000})
                  res.redirect('/')
              }else{
                  res.json("your password is not match")
@@ -97,6 +101,6 @@ exports.ChangePassword = async (req,res)=>{
             res.json("password not match")
         }
     }else{
-        res.json("email id not exist")
+        res.json("email is not exist")
     }
 }

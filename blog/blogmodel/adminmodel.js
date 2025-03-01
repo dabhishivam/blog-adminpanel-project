@@ -12,7 +12,20 @@ const adminschema = new Schema({
         ...common,
         unique:false
     },
-    admin_profile:String
+    admin_profile:String,
+    token:String,
+    // role_id:{
+    //     type:String,
+    //     required:true,
+    //     default:"user",
+    //     enum : ["user","admin"]
+    // },
+    role_id:{
+        type:Number,
+        required:true,
+        default : 0,
+        enum:[0,1]
+    }
 },
 {
     timestamps:true
